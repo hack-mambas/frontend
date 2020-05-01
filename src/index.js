@@ -1,14 +1,21 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
-import * as serviceWorker from './serviceWorker'
+import { Router } from 'react-router'
+import { createBrowserHistory } from 'history'
 
+import App from './App'
 import Providers from './providers'
 
+import * as serviceWorker from './serviceWorker'
+
+const history = createBrowserHistory()
+
 ReactDOM.render(
-  <Providers>
-    <App />
-  </Providers>,
+  <Router history={history}>
+    <Providers>
+      <App />
+    </Providers>
+  </Router>,
   document.getElementById('root')
 )
 
