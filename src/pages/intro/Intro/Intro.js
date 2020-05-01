@@ -8,22 +8,26 @@ import { useHistory } from 'react-router-dom'
 
 const introSteps = [
   {
-    image:
-      'https://conteudo.imguol.com.br/c/entretenimento/fa/2019/04/18/legumes-e-verduras-1555620381375_v2_600x600.jpg'
+    content: 'https://source.unsplash.com/GwMbiwGMCQs'
   },
   {
-    image: 'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60'
+    content: 'https://source.unsplash.com/zYUn4R37o_U'
   },
   {
-    image: 'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60'
+    content: 'https://source.unsplash.com/2oYMwuFgnTg'
   }
 ]
 
 const useStyles = makeStyles(() => ({
+  mainContainer: {
+    padding: 0
+  },
   img: {
-    height: '90vh',
+    height: '92vh',
     overflow: 'hidden',
-    display: 'block',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     width: '100%'
   }
 }))
@@ -54,7 +58,7 @@ export const Intro = memo(() => {
   }
 
   return (
-    <Container>
+    <Container className={classes.mainContainer}>
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={activeStep}
@@ -62,8 +66,8 @@ export const Intro = memo(() => {
         enableMouseEvents
       >
         {introSteps.map((step, index) => (
-          <div key={index}>
-            {Math.abs(activeStep - index) <= 2 ? <img className={classes.img} src={step.image} alt="" /> : null}
+          <div key={index} className={classes.img}>
+            {Math.abs(activeStep - index) <= 2 ? <img src={step.content} alt="" /> : null}
           </div>
         ))}
       </SwipeableViews>
