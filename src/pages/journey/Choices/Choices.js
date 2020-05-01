@@ -43,12 +43,7 @@ export const Choices = memo(() => {
         </Box>
 
         <Box display="flex" flexDirection="column">
-          <Button
-            className={classes.button}
-            variant="outlined"
-            color="primary"
-            onClick={() => handleChoices('producer')}
-          >
+          <Button className={classes.button} variant="outlined" color="primary" onClick={() => handleChoices('auth')}>
             Sou Produtor
           </Button>
 
