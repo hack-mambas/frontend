@@ -6,7 +6,7 @@ const Choices = lazy(() => import('./Choices'))
 const Journey = memo(() => {
   return (
     <Suspense fallback={<div>is loading...</div>}>
-      <Route exact path="/journey/choices" component={Choices} />
+      <Route path="/journey/choices" component={Choices} />
       <Redirect to="/journey/choices" />
     </Suspense>
   )

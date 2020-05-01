@@ -3,13 +3,13 @@ import { Route, Redirect } from 'react-router-dom'
 
 const Intro = lazy(() => import('./Intro'))
 
-const IntroRoute = memo(() => {
+const Pages = memo(() => {
   return (
     <Suspense fallback={<div>is loading...</div>}>
-      <Route exact path="/intro" component={Intro} />
+      <Route path="/intro" component={Intro} />
       <Redirect to="/intro" />
     </Suspense>
   )
 })
 
-export default IntroRoute
+export default Pages
