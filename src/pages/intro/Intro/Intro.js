@@ -1,10 +1,15 @@
 import React, { memo } from 'react'
-import { makeStyles, useTheme } from '@material-ui/core/styles'
-import MobileStepper from '@material-ui/core/MobileStepper'
-import Button from '@material-ui/core/Button'
-import SwipeableViews from 'react-swipeable-views'
-import { Container } from '@material-ui/core'
+
 import { useHistory } from 'react-router-dom'
+
+import SwipeableViews from 'react-swipeable-views'
+
+import { makeStyles, useTheme } from '@material-ui/core/styles'
+
+import MobileStepper from '@material-ui/core/MobileStepper'
+
+import Button from '@material-ui/core/Button'
+import Container from '@material-ui/core/Container'
 
 const introSteps = [
   {
@@ -71,6 +76,7 @@ export const Intro = memo(() => {
           </div>
         ))}
       </SwipeableViews>
+
       <MobileStepper
         steps={introSteps.length}
         position="static"
