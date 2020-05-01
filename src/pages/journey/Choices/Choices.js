@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { memo, useCallback } from 'react'
 
 import { useHistory } from 'react-router-dom'
 
@@ -28,13 +28,12 @@ export const Choices = memo(() => {
 
   const history = useHistory()
 
-  const handleClickProducer = () => {
-    history.push('/journey/producer')
-  }
-
-  const handleClickConsumer = () => {
-    history.push('/journey/consumer')
-  }
+  const handleChoices = useCallback(
+    (route) => {
+      history.push(`/journey/${route}`)
+    },
+    [history]
+  )
 
   return (
     <Container>
@@ -44,11 +43,11 @@ export const Choices = memo(() => {
         </Box>
 
         <Box display="flex" flexDirection="column">
-          <Button className={classes.button} variant="outlined" color="primary" onClick={handleClickProducer}>
+          <Button className={classes.button} variant="outlined" color="primary" onClick={handleChoices('producer')}>
             Sou Produtor
           </Button>
 
-          <Button className={classes.button} variant="outlined" color="secondary" onClick={handleClickConsumer}>
+          <Button className={classes.button} variant="outlined" color="secondary" onClick={handleChoices('consumer')}>
             Sou Consumidor
           </Button>
         </Box>
