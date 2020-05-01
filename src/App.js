@@ -1,5 +1,7 @@
 import React, { memo, lazy, Suspense, useMemo } from 'react'
 
+import LoaderBox from './components/LoaderBox'
+
 const Pages = lazy(() => import('./pages'))
 
 const App = memo(() => {
@@ -8,7 +10,7 @@ const App = memo(() => {
   }, [])
 
   return (
-    <Suspense fallback={<div>is loading...</div>}>
+    <Suspense fallback={<LoaderBox />}>
       <Component />
     </Suspense>
   )
