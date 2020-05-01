@@ -38,8 +38,6 @@ export const Intro = memo(() => {
   const [activeStep, setActiveStep] = React.useState(0)
 
   const handleNext = () => {
-    console.log('activeStep', activeStep)
-    console.log('introSteps.length', introSteps.length)
     if (activeStep === introSteps.length - 1) {
       history.push('/journey/choices')
       return

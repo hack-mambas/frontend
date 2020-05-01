@@ -3,6 +3,7 @@ import React, { useLayoutEffect } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { ReactQueryConfigProvider } from 'react-query'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
+import CssBaseline from '@material-ui/core/CssBaseline'
 
 import * as services from '../services'
 
@@ -16,28 +17,19 @@ const reactQueryConfig = () => {
 }
 
 const theme = createMuiTheme({
-  // palette: {
-  //   primary: {
-  //     light: '',
-  //     main: '',
-  //     contrastText: ''
-  //   },
-  //   secondary: {
-  //     light: '',
-  //     main: '',
-  //     contrastText: ''
-  //   }
-  // },
-  // overrides: {
-  //   MuiButton: {
-  //     root: {
-  //       color: 'white',
-  //       '&:hover': {
-  //         backgroundColor: 'green'
-  //       }
-  //     }
-  //   }
-  // }
+  palette: {
+    primary: {
+      main: '#529f4e',
+      contrastText: '#fff'
+    },
+    secondary: {
+      main: '#ffc802',
+      contrastText: '#fff'
+    },
+    background: {
+      default: '#f0f0f0'
+    }
+  }
 })
 
 const Providers = ({ children }) => {
@@ -54,6 +46,7 @@ const Providers = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <ReactQueryConfigProvider config={reactQueryConfig}>
         <BrowserRouter basename="/">{children}</BrowserRouter>
       </ReactQueryConfigProvider>
