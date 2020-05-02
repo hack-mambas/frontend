@@ -20,8 +20,8 @@ export const routesProducer = [
     icon: 'emoji_events'
   },
   {
-    name: 'Especialidades',
-    path: '/journey/producer/specialities',
+    name: 'Categorias',
+    path: '/journey/producer/categories',
     icon: 'star'
   }
 ]

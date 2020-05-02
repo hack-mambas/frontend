@@ -7,14 +7,14 @@ import LoaderBox from '../../../components/LoaderBox'
 import { routesProducer } from '../../../constants/routes'
 
 const Dashboard = lazy(() => import('./Dashboard'))
-const Specialities = lazy(() => import('./Specialities'))
+const Categories = lazy(() => import('./Categories'))
 
 const Journey = memo(() => {
   return (
     <Suspense fallback={<LoaderBox />}>
       <Layout routes={routesProducer}>
         <Route path="/journey/producer/dashboard" component={Dashboard} />
-        <Route path="/journey/producer/specialities" component={Specialities} />
+        <Route path="/journey/producer/categories" component={Categories} />
         <Redirect to="/journey/producer/dashboard" />
       </Layout>
     </Suspense>

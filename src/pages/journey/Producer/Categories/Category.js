@@ -7,7 +7,7 @@ import { TextField } from 'formik-material-ui'
 
 import { Box, Paper, Typography, Grid, Button } from '@material-ui/core'
 
-const Specialities = memo(() => {
+const Category = memo(() => {
   const validationSchema = useMemo(() => {
     return Yup.object({
       nome: Yup.string().required('Campo obrigatório!')
@@ -35,11 +35,11 @@ const Specialities = memo(() => {
             validationSchema={validationSchema}
             validateOnBlur={false}
           >
-            {({ isSubmitting }) => (
+            {({}) => (
               <Form noValidate>
                 <Grid container spacing={3}>
                   <Grid item xs={12}>
-                    <Typography>Especialidade</Typography>
+                    <Typography>Categoria</Typography>
                   </Grid>
                   <Grid item xs={12}>
                     <Field component={TextField} name="nome" label="Nome" variant="outlined" fullWidth />
@@ -61,4 +61,4 @@ const Specialities = memo(() => {
   )
 })
 
-export default Specialities
+export default Category
