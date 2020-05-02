@@ -22,11 +22,11 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-export const MarketplaceListItem = ({ item }) => {
+export const MarketplaceListItem = ({ item, onClick }) => {
   const classes = useStyles()
 
   return (
-    <Box className={classes.item}>
+    <Box className={classes.item} onClick={onClick}>
       <img className={classes.image} alt={item.description} src={item.image} />
       <Typography className={classes.title} variant="caption" noWrap>
         {item.description}

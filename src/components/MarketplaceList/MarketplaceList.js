@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useCallback } from 'react'
+
+import { useHistory } from 'react-router-dom'
 
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -20,11 +22,14 @@ const useStyles = makeStyles((theme) => ({
 export const MarketplaceList = () => {
   const classes = useStyles()
 
+  const history = useHistory()
+
   const sessions = [
     {
       sessionTitle: 'Destaques da Feira',
       items: [
         {
+          id: '1',
           description: 'Cesta Diversificada',
           producer: 'Sitio Sapopema',
           value: 'R$18',
@@ -32,6 +37,7 @@ export const MarketplaceList = () => {
           type: 'product'
         },
         {
+          id: '2',
           description: 'Cesta de vegetais e legumes',
           producer: 'Morada dos Sonhos',
           value: 'R$35',
@@ -44,12 +50,14 @@ export const MarketplaceList = () => {
       sessionTitle: 'Entregam Hoje',
       items: [
         {
+          id: '3',
           description: 'Sítio Aborígene',
           producer: 'Caxias',
           image: 'https://source.unsplash.com/XemjjFd_4qE',
           type: 'producer'
         },
         {
+          id: '4',
           description: 'Sítio Aborígene',
           producer: 'Caxias',
           image: 'https://source.unsplash.com/XemjjFd_4qE',
@@ -58,6 +66,13 @@ export const MarketplaceList = () => {
       ]
     }
   ]
+
+  const handleClickItem = useCallback(
+    (id, route) => {
+      history.push(`/journey/consumer/marketplace/${route}/${id}`)
+    },
+    [history]
+  )
 
   return (
     <Box>
@@ -70,7 +85,7 @@ export const MarketplaceList = () => {
 
             <Box className={classes.itens}>
               {session.items.map((item, index) => (
-                <MarketplaceListItem item={item} />
+                <MarketplaceListItem item={item} onClick={() => handleClickItem(item.id, item.type)} />
               ))}
             </Box>
           </>
