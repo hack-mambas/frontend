@@ -1,8 +1,9 @@
 import React, { memo } from 'react'
-import { Container } from '@material-ui/core'
+
+import { MarketplaceFilters } from './MarketplaceFilters'
 
 const Marketplace = memo(() => {
-  return <Container>marketplace</Container>
+  return <MarketplaceFilters />
 })
 
 export default Marketplace
