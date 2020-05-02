@@ -1,15 +1,13 @@
 import React, { memo } from 'react'
-import { Container, Paper, Box } from '@material-ui/core'
+import { Container, Box } from '@material-ui/core'
 
 const Content = memo(({ children, title }) => {
   return (
     <Container>
-      <Paper m={2}>
-        <Box display="flex" flexDirection="column">
-          <Box>{title}</Box>
-          <Box>{children}</Box>
-        </Box>
-      </Paper>
+      <Box display="flex" flexDirection="column">
+        <Box>{title}</Box>
+        <Box>{children}</Box>
+      </Box>
     </Container>
   )
 })
