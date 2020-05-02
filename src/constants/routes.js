@@ -18,6 +18,11 @@ export const routesProducer = [
     name: 'Conquistas',
     path: '/journey/producer/achievements',
     icon: 'emoji_events'
+  },
+  {
+    name: 'Especialidades',
+    path: '/journey/producer/specialities',
+    icon: 'star'
   }
 ]
 

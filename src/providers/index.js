@@ -3,6 +3,7 @@ import React, { useLayoutEffect } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { ReactQueryConfigProvider } from 'react-query'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
+import { SnackbarProvider } from 'react-snackbar-alert'
 import CssBaseline from '@material-ui/core/CssBaseline'
 
 import * as services from '../services'
@@ -46,10 +47,12 @@ const Providers = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <ReactQueryConfigProvider config={reactQueryConfig}>
-        <BrowserRouter basename="/">{children}</BrowserRouter>
-      </ReactQueryConfigProvider>
+      <SnackbarProvider position="bottom">
+        <CssBaseline />
+        <ReactQueryConfigProvider config={reactQueryConfig}>
+          <BrowserRouter basename="/">{children}</BrowserRouter>
+        </ReactQueryConfigProvider>
+      </SnackbarProvider>
     </ThemeProvider>
   )
 }

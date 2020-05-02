@@ -2,16 +2,19 @@ import React, { memo, useCallback } from 'react'
 
 import Chart from 'react-apexcharts'
 
+import { useHistory } from 'react-router-dom'
+
 import { makeStyles } from '@material-ui/core/styles'
 
 import { Container, Box, Typography, Grid, CardActionArea, Card, CardContent } from '@material-ui/core'
 
 import Icon from '@material-ui/core/Icon'
 
-import { routesProducer } from '../../../../constants/routes'
-import { useHistory } from 'react-router-dom'
+import { useSnackbar } from '../../../../hooks/useSnackbar'
 
-const useStyles = makeStyles((theme) => ({
+import { routesProducer } from '../../../../constants/routes'
+
+const useStyles = makeStyles(() => ({
   cardAtalhos: {
     height: 100,
     maxWidth: 200
@@ -76,14 +79,18 @@ const mockIndicadoresPedidosCancelados = {
 
 const Dashboard = memo(() => {
   const classes = useStyles()
+  const { createSnackbar } = useSnackbar()
 
   const history = useHistory()
 
   const handleRoute = useCallback(
     (route) => {
-      history.push(`${route}`)
+      createSnackbar({
+        message: 'deu boa',
+        theme: 'error'
+      })
     },
-    [history]
+    [createSnackbar]
   )
 
   return (
