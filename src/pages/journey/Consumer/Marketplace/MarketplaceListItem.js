@@ -9,12 +9,16 @@ const useStyles = makeStyles((theme) => ({
   image: {
     width: '150px',
     height: '150px',
-    borderRadius: '10px'
+    borderRadius: '10px',
+    marginBottom: '10px'
   },
   item: {
     display: 'flex',
     flexDirection: 'column',
     marginRight: theme.spacing(6)
+  },
+  title: {
+    fontWeight: theme.typography.fontWeightBold
   }
 }))
 
@@ -24,7 +28,7 @@ export const MarketplaceListItem = ({ item }) => {
   return (
     <Box className={classes.item}>
       <img className={classes.image} alt={item.description} src={item.image} />
-      <Typography variant="caption" noWrap>
+      <Typography className={classes.title} variant="caption" noWrap>
         {item.description}
       </Typography>
       <Typography variant="caption" noWrap>
