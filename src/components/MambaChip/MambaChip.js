@@ -9,7 +9,8 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(1),
     marginRight: theme.spacing(1),
     backgroundColor: (props) => props.color,
-    color: theme.palette.background.default
+    color: theme.palette.background.default,
+    borderRadius: '5px'
   }
 }))
 
