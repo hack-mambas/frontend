@@ -2,7 +2,7 @@ export const routesProducer = [
   {
     name: 'Meus produtos',
     path: '/journey/producer/products',
-    icon: 'store_front'
+    icon: 'storefront'
   },
   {
     name: 'Pedidos',
