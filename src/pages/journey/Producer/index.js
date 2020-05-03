@@ -9,6 +9,7 @@ import { routesProducer } from '../../../constants/routes'
 const Dashboard = lazy(() => import('./Dashboard'))
 const Categories = lazy(() => import('./Categories'))
 const Products = lazy(() => import('./Products'))
+const Profile = lazy(() => import('./Profile'))
 
 const Journey = memo(() => {
   return (
@@ -17,6 +18,7 @@ const Journey = memo(() => {
         <Route path="/journey/producer/dashboard" component={Dashboard} />
         <Route path="/journey/producer/categories" component={Categories} />
         <Route path="/journey/producer/products" component={Products} />
+        <Route path="/journey/producer/my-profile" component={Profile} />
         <Redirect to="/journey/producer/dashboard" />
       </Layout>
     </Suspense>
