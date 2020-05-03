@@ -74,23 +74,19 @@ export const MarketplaceList = () => {
     [history]
   )
 
-  return (
-    <Box>
-      {sessions.map((session, index) => {
-        return (
-          <>
-            <Typography variant="h6" key={index} className={classes.main}>
-              {session.sessionTitle}
-            </Typography>
+  return sessions.map((session, index) => {
+    return (
+      <Box key={index}>
+        <Typography variant="h6" key={index} className={classes.main}>
+          {session.sessionTitle}
+        </Typography>
 
-            <Box className={classes.itens}>
-              {session.items.map((item, index) => (
-                <MarketplaceListItem item={item} onClick={() => handleClickItem(item.id, item.type)} />
-              ))}
-            </Box>
-          </>
-        )
-      })}
-    </Box>
-  )
+        <Box className={classes.itens}>
+          {session.items.map((item, index) => (
+            <MarketplaceListItem key={index} item={item} onClick={() => handleClickItem(item.id, item.type)} />
+          ))}
+        </Box>
+      </Box>
+    )
+  })
 }

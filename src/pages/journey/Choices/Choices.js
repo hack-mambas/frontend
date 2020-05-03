@@ -15,11 +15,13 @@ const useStyles = makeStyles(() => ({
     justifyContent: 'center',
     alignItems: 'center',
     height: '100vh',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    padding: '0 6%'
   },
   button: {
     margin: '15px 0',
-    width: '100%'
+    width: '100%',
+    padding: '10px 0'
   }
 }))
 
@@ -38,16 +40,18 @@ export const Choices = memo(() => {
   return (
     <Container>
       <Box className={classes.main}>
-        <Box>
-          <Typography>Primeiro de tudo, queremos conhecer você.</Typography>
+        <Box textAlign="center">
+          <Typography color="primary" variant="h5">
+            Primeiro de tudo, queremos conhecer você.
+          </Typography>
         </Box>
 
-        <Box display="flex" flexDirection="column">
+        <Box display="flex" flexDirection="column" width="100%">
           <Button
             className={classes.button}
             variant="outlined"
             color="primary"
-            onClick={() => handleChoices('producer')}
+            onClick={() => handleChoices('producer/new')}
           >
             Sou Produtor
           </Button>

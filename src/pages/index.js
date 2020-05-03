@@ -11,6 +11,7 @@ const IntroRoute = memo(() => {
     <Suspense fallback={<LoaderBox />}>
       <Route path="/intro" component={Intro} />
       <Route path="/journey" component={Journey} />
+
       <Redirect to="/intro" />
     </Suspense>
   )
