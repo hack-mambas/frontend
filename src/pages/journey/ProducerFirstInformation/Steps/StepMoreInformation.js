@@ -70,7 +70,7 @@ const StepMoreInformation = () => {
       </Box>
 
       <Box className={classes.boxForward}>
-        <Button color="secondary" onClick={() => handleHistory('new/more-information')}>
+        <Button color="secondary" onClick={() => handleHistory('new/property-location')}>
           <Typography variant="h6">Voltar</Typography>
         </Button>
       </Box>
