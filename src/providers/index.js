@@ -24,12 +24,16 @@ const theme = createMuiTheme({
       contrastText: '#fff'
     },
     secondary: {
-      main: '#ffc802',
+      main: '#F1BD42',
       contrastText: '#fff'
     },
     background: {
+      main: '#f0f0f0',
       default: '#f0f0f0'
     }
+  },
+  typography: {
+    fontFamily: 'Rubik, sans-serif'
   }
 })
 

@@ -10,7 +10,8 @@ const useStyles = makeStyles((theme) => ({
     width: '150px',
     height: '150px',
     borderRadius: '10px',
-    marginBottom: '10px'
+    marginBottom: '10px',
+    boxShadow: '-6px 9px 30px 0px rgba(0,0,0,0.17)'
   },
   item: {
     display: 'flex',

@@ -2,7 +2,7 @@ import React from 'react'
 
 import Box from '@material-ui/core/Box'
 
-import MambaChip from '../../../../components/MambaChip'
+import MambaChip from '../../../../components/Chip'
 
 export const MarketplaceFilters = () => {
   const specialties = [
@@ -16,14 +16,10 @@ export const MarketplaceFilters = () => {
     { description: 'Mel e Derivados', color: '#F5C802' }
   ]
 
-  const handleClickChip = () => {
-    console.log('teey!')
-  }
-
   return (
     <Box display="flex" flexWrap="wrap">
       {specialties.map((specialty, index) => (
-        <MambaChip key={index} color={specialty.color} label={specialty.description} onClick={() => handleClickChip} />
+        <MambaChip key={index} color={specialty.color} label={specialty.description} />
       ))}
     </Box>
   )
