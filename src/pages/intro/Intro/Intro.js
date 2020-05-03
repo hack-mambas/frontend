@@ -11,15 +11,19 @@ import MobileStepper from '@material-ui/core/MobileStepper'
 import Button from '@material-ui/core/Button'
 import Container from '@material-ui/core/Container'
 
+import IntroImage1 from '../../../assets/intro-1.jpeg'
+import IntroImage2 from '../../../assets/intro-2.jpeg'
+import IntroImage3 from '../../../assets/intro-3.jpeg'
+
 const introSteps = [
   {
-    content: 'https://source.unsplash.com/GwMbiwGMCQs'
+    content: IntroImage1
   },
   {
-    content: 'https://source.unsplash.com/zYUn4R37o_U'
+    content: IntroImage2
   },
   {
-    content: 'https://source.unsplash.com/2oYMwuFgnTg'
+    content: IntroImage3
   }
 ]
 
@@ -72,7 +76,7 @@ export const Intro = memo(() => {
       >
         {introSteps.map((step, index) => (
           <div key={index} className={classes.img}>
-            {Math.abs(activeStep - index) <= 2 ? <img src={step.content} alt="" /> : null}
+            {Math.abs(activeStep - index) <= 2 ? <img src={step.content} alt="" width="100%" /> : null}
           </div>
         ))}
       </SwipeableViews>

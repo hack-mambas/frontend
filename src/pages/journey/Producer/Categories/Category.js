@@ -21,7 +21,6 @@ const Category = memo(() => {
   }, [])
 
   const onSubmit = useCallback((values, formik) => {
-    console.log('values', values)
     formik.setSubmitting(false)
   }, [])
 

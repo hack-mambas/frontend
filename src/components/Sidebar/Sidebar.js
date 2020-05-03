@@ -10,8 +10,9 @@ const Sidebar = memo(({ open, onOpen, routes }) => {
   const handleRoute = useCallback(
     (route) => {
       history.push(`${route}`)
+      onOpen(false)
     },
-    [history]
+    [history, onOpen]
   )
 
   return (

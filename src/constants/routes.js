@@ -1,8 +1,8 @@
 export const routesProducer = [
   {
-    name: 'Minha banca',
-    path: '/journey/producer/my-sales',
-    icon: 'store_front'
+    name: 'Meus produtos',
+    path: '/journey/producer/products',
+    icon: 'storefront'
   },
   {
     name: 'Pedidos',

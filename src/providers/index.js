@@ -20,16 +20,20 @@ const reactQueryConfig = () => {
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#529f4e',
+      main: '#64B450',
       contrastText: '#fff'
     },
     secondary: {
-      main: '#ffc802',
+      main: '#F1BD42',
       contrastText: '#fff'
     },
     background: {
+      main: '#f0f0f0',
       default: '#f0f0f0'
     }
+  },
+  typography: {
+    fontFamily: 'Rubik, sans-serif'
   }
 })
 
