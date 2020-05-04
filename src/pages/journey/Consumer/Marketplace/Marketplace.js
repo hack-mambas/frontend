@@ -1,4 +1,6 @@
-import React, { memo, useState } from 'react'
+import React, { memo, useState, useCallback } from 'react'
+
+import { useHistory } from 'react-router-dom'
 
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -43,7 +45,7 @@ const deliverToday = [
 
 const favourites = [
   {
-    id: '1',
+    id: '3',
     description: 'Velho Casarão',
     location: 'Linha Tapera',
     city: 'Grande Figueira, ST',
@@ -54,8 +56,17 @@ const favourites = [
 const Marketplace = memo(() => {
   const classes = useStyles()
 
+  const history = useHistory()
+
   const [openedColapse, setOpenedColapse] = useState(true)
   const [openedColapseFavorites, setOpenedColapseFavorites] = useState(true)
+
+  const handleSelectProperty = useCallback(
+    (id) => {
+      history.push(`/journey/consumer/marketplace/producer/${id}`)
+    },
+    [history]
+  )
 
   return (
     <Container>
@@ -76,7 +87,7 @@ const Marketplace = memo(() => {
           )}
         </Box>
         <Collapse in={openedColapse} timeout="auto" unmountOnExit>
-          <VerticalList items={deliverToday} />
+          <VerticalList items={deliverToday} onClick={handleSelectProperty} />
         </Collapse>
       </Box>
 

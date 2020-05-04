@@ -35,11 +35,11 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-export const VerticalList = ({ items }) => {
+export const VerticalList = ({ items, onClick }) => {
   const classes = useStyles()
 
   return items.map((item, index) => (
-    <Box key={index} className={classes.main}>
+    <Box key={index} className={classes.main} onClick={() => onClick(item.id)}>
       <Box>
         <img alt={item.description} src={item.image} />
       </Box>

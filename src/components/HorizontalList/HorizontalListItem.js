@@ -28,13 +28,11 @@ export const HorizontalListItem = ({ item, onClick }) => {
 
   return (
     <Box className={classes.item} onClick={onClick}>
-      <img className={classes.image} alt={item.description} src={item.image} />
-      <Typography className={classes.title} variant="caption" noWrap>
-        {item.description}
+      <img className={classes.image} alt={item.title} src={item.image} />
+      <Typography className={classes.title} variant="caption">
+        {item.title}
       </Typography>
-      <Typography variant="caption" noWrap>
-        {item.producer}
-      </Typography>
+      <Typography variant="caption">{item.description}</Typography>
       <Typography variant="caption" noWrap>
         {item.value}
       </Typography>

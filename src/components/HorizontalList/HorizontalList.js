@@ -6,7 +6,6 @@ import { makeStyles } from '@material-ui/core/styles'
 
 import Box from '@material-ui/core/Box'
 import GridList from '@material-ui/core/GridList'
-import Typography from '@material-ui/core/Typography'
 
 import { HorizontalListItem } from './HorizontalListItem'
 
@@ -36,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-export const HorizontalList = ({ sessions }) => {
+export const HorizontalList = ({ items }) => {
   const classes = useStyles()
 
   const history = useHistory()
@@ -48,21 +47,15 @@ export const HorizontalList = ({ sessions }) => {
     [history]
   )
 
-  return sessions.map((session, index) => {
-    return (
-      <Box key={index}>
-        <Typography variant="h6" className={classes.main}>
-          {session.sessionTitle}
-        </Typography>
-
-        <div className={classes.root}>
-          <GridList className={classes.gridList} cols={2.5}>
-            {session.items.map((item, index) => (
-              <HorizontalListItem key={index} item={item} onClick={() => handleClickItem(item.id, item.type)} />
-            ))}
-          </GridList>
-        </div>
-      </Box>
-    )
-  })
+  return (
+    <Box>
+      <div className={classes.root}>
+        <GridList className={classes.gridList} cols={2.5}>
+          {items.map((item, index) => (
+            <HorizontalListItem key={index} item={item} onClick={() => handleClickItem(item.id, item.type)} />
+          ))}
+        </GridList>
+      </div>
+    </Box>
+  )
 }
