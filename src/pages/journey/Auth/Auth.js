@@ -44,7 +44,7 @@ export const Auth = () => {
       <Box className={classes.main}>
         <Box>
           <Typography variant="h6" color="primary">
-            Healfi - Feira Digital
+            Realfi - Feira Digital
           </Typography>
         </Box>
 

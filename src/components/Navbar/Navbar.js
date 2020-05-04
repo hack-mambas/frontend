@@ -57,7 +57,7 @@ const Navbar = memo(({ onClickMenu }) => {
         </IconButton>
         <Box width={1}>
           <Typography variant="h6" className={classes.title}>
-            Healfi
+            Realfi
           </Typography>
         </Box>
         <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu" onClick={handleClick}>
