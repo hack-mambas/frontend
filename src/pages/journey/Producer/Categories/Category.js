@@ -34,7 +34,7 @@ const Category = memo(() => {
             validationSchema={validationSchema}
             validateOnBlur={false}
           >
-            {({}) => (
+            {() => (
               <Form noValidate>
                 <Grid container spacing={3}>
                   <Grid item xs={12}>

@@ -65,6 +65,14 @@ export const Choices = memo(() => {
             Sou Consumidor
           </Button>
         </Box>
+        <Box textAlign="center" display="flex" flexDirection="column" onClick={() => handleChoices('auth')} mt={12}>
+          <Typography color="primary" variant="span">
+            Já tem cadastro?
+          </Typography>
+          <Typography color="primary" variant="a">
+            Clique aqui!
+          </Typography>
+        </Box>
       </Box>
     </Container>
   )
