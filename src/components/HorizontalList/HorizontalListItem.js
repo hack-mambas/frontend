@@ -10,20 +10,20 @@ const useStyles = makeStyles((theme) => ({
     width: '150px',
     height: '150px',
     borderRadius: '10px',
-    marginBottom: '10px',
-    boxShadow: '-6px 9px 30px 0px rgba(0,0,0,0.17)'
+    marginBottom: '10px'
   },
   item: {
     display: 'flex',
     flexDirection: 'column',
-    marginRight: theme.spacing(6)
+    marginRight: theme.spacing(3),
+    marginLeft: theme.spacing(1)
   },
   title: {
     fontWeight: theme.typography.fontWeightBold
   }
 }))
 
-export const MarketplaceListItem = ({ item, onClick }) => {
+export const HorizontalListItem = ({ item, onClick }) => {
   const classes = useStyles()
 
   return (

@@ -14,8 +14,8 @@ const Journey = memo(() => {
     <Suspense fallback={<LoaderBox />}>
       <Route path="/journey/auth" component={Auth} />
       <Route path="/journey/choices" component={Choices} />
-      <Route path="/journey/producer" exact component={Producer} />
-      <Route path="/journey/producer/new" component={ProducerFirstInformation} />
+      <Route path="/journey/producer" component={Producer} />
+      <Route path="/journey/intro-producer" component={ProducerFirstInformation} />
       <Route path="/journey/consumer" component={Consumer} />
 
       <Redirect to="/journey/choices" />

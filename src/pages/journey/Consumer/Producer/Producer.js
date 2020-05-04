@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography'
 import StarIcon from '@material-ui/icons/Star'
 
 import MambaChip from '../../../../components/Chip'
-import MarketplaceList from '../../../../components/MarketplaceList'
+import HorizontalList from '../../../../components/HorizontalList'
 
 const useStyles = makeStyles((theme) => ({
   image: {
@@ -64,7 +64,7 @@ export const Producer = ({ producer }) => {
         </Box>
 
         <Box>
-          <MarketplaceList />
+          <HorizontalList />
         </Box>
       </Container>
     </>

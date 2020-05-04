@@ -49,11 +49,11 @@ const StepPropertyLocation = () => {
   const history = useHistory()
 
   const handleNext = useCallback(() => {
-    history.push('/journey/producer/new/more-information')
+    history.push('/journey/intro-producer/more-information')
   }, [history])
 
   const handlePrev = useCallback(() => {
-    history.push('/journey/producer/new/property')
+    history.push('/journey/intro-producer/property')
   }, [history])
 
   return (
