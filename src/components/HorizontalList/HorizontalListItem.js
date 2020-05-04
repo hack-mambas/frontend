@@ -10,31 +10,29 @@ const useStyles = makeStyles((theme) => ({
     width: '150px',
     height: '150px',
     borderRadius: '10px',
-    marginBottom: '10px',
-    boxShadow: '-6px 9px 30px 0px rgba(0,0,0,0.17)'
+    marginBottom: '10px'
   },
   item: {
     display: 'flex',
     flexDirection: 'column',
-    marginRight: theme.spacing(6)
+    marginRight: theme.spacing(3),
+    marginLeft: theme.spacing(1)
   },
   title: {
     fontWeight: theme.typography.fontWeightBold
   }
 }))
 
-export const MarketplaceListItem = ({ item, onClick }) => {
+export const HorizontalListItem = ({ item, onClick }) => {
   const classes = useStyles()
 
   return (
     <Box className={classes.item} onClick={onClick}>
-      <img className={classes.image} alt={item.description} src={item.image} />
-      <Typography className={classes.title} variant="caption" noWrap>
-        {item.description}
+      <img className={classes.image} alt={item.title} src={item.image} />
+      <Typography className={classes.title} variant="caption">
+        {item.title}
       </Typography>
-      <Typography variant="caption" noWrap>
-        {item.producer}
-      </Typography>
+      <Typography variant="caption">{item.description}</Typography>
       <Typography variant="caption" noWrap>
         {item.value}
       </Typography>

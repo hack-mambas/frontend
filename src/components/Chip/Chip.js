@@ -10,7 +10,8 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(1),
     backgroundColor: (props) => props.color,
     color: theme.palette.background.default,
-    borderRadius: '5px'
+    borderRadius: '5px',
+    padding: '0'
   }
 }))
 
