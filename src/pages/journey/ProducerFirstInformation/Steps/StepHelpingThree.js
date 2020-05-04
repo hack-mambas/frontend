@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react'
+import React, { useCallback } from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom'
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
 
-import Background from '../../../../assets/helping-three.png';
+import Background from '../../../../assets/helping-three.png'
 import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles((theme) => ({
@@ -24,11 +24,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: `url(${Background})`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
+    backgroundRepeat: 'no-repeat'
   },
   mainText: {
     zIndex: 10,
-    marginTop: '2rem',
+    marginTop: '2rem'
   },
   boxForward: {
     position: 'fixed',

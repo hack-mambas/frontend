@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   },
   whiteAction: {
     color: '#FFF'
-  },
+  }
 }))
 
 const StepProducerName = () => {
@@ -81,7 +81,7 @@ const StepProducerName = () => {
 
   const handlePrev = useCallback(() => {
     history.push('/journey/intro-producer/helping-three')
-  }, [handleValidation, history])
+  }, [history])
 
   return (
     <>

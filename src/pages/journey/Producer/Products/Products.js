@@ -31,8 +31,36 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const mock = [
-  { id: '2', nome: 'produto 1' },
-  { id: '2', nome: 'produto 2' }
+  { id: '1', nome: 'Abóbora', image: 'https://cdn-cv.r4you.co/wp-content/uploads/2017/12/iStock-610878486.jpg' },
+  {
+    id: '2',
+    nome: 'Agrião',
+    image: 'https://lar-natural.com.br/laradmin/uploads/2015/04/benef%C3%ADcios-agri%C3%A3o.jpg'
+  },
+  {
+    id: '6',
+    nome: 'Couve-flor',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_jFpqhrOLPW3nImdl4EjsWxX4aac1lVuIP70tgYwYPCLIG8Rc&usqp=CAU'
+  },
+  {
+    id: '9',
+    nome: 'Alface',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRYByuZIWTbR0jGciKeZFuL5oJMQOHKkIC9rBaIQjSF8QYf3io3&usqp=CAU'
+  },
+  {
+    id: '7',
+    nome: 'Cenoura',
+    image: 'https://www.greenme.com.br/wp-content/uploads/2015/07/cenouras-beneficios-1200x621.jpg'
+  },
+  { id: '4', nome: 'Salame', image: 'https://i.ytimg.com/vi/kHUqGecMt0c/maxresdefault.jpg' },
+  {
+    id: '8',
+    nome: 'Queijo',
+    image:
+      'https://img77.uenicdn.com/image/upload/v1570803171/business/vjlaticinios/fe01441a-4ace-48a1-91b7-aee77200b8e4.jpg'
+  }
 ]
 
 const Products = memo(() => {
@@ -70,7 +98,7 @@ const Products = memo(() => {
                 {mock.map((row) => (
                   <TableRow key={row.id}>
                     <TableCell component="th" scope="row" className={classes.row}>
-                      <Avatar alt={row.nome} src="" className={classes.large} />
+                      <Avatar alt={row.nome} src={row.image} className={classes.large} />
                     </TableCell>
                     <TableCell component="th" scope="row">
                       {row.nome}
