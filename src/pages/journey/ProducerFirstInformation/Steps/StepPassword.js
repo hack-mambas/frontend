@@ -45,7 +45,10 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     flexDirection: 'row-reverse',
     justifyContent: 'space-between'
-  }
+  },
+  whiteAction: {
+    color: '#FFF'
+  },
 }))
 
 const StepPassword = () => {
@@ -109,11 +112,11 @@ const StepPassword = () => {
       </Box>
 
       <Box className={classes.boxForward}>
-        <Button color="secondary" onClick={() => handleNext()}>
+        <Button className={classes.whiteAction} onClick={() => handleNext()}>
           <Typography variant="h6">Avançar</Typography>
         </Button>
 
-        <Button color="secondary" onClick={() => handlePrev()}>
+        <Button className={classes.whiteAction} onClick={() => handlePrev()}>
           <Typography variant="h6">Voltar</Typography>
         </Button>
       </Box>
