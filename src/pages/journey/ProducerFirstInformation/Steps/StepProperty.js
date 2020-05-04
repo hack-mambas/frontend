@@ -1,6 +1,10 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useRef } from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
+
+import { useProducerInformation } from '../ProducerInformationContext'
+
+import { useSnackbar } from '../../../../hooks/useSnackbar'
 
 import { useHistory } from 'react-router-dom'
 
@@ -46,11 +50,31 @@ const useStyles = makeStyles((theme) => ({
 const StepProperty = () => {
   const classes = useStyles()
 
+  const { createSnackbar } = useSnackbar()
+
+  const inputRef = useRef()
+
   const history = useHistory()
 
+  const { state, edit } = useProducerInformation()
+
+  const handleValidation = useCallback(() => {
+    if (!state.nomeEmpresa) {
+      inputRef.current.focus()
+      createSnackbar({
+        theme: 'error',
+        message: 'O campo propriedade é obrigatório!'
+      })
+      return false
+    }
+    return true
+  }, [createSnackbar, state.nomeEmpresa])
+
   const handleNext = useCallback(() => {
-    history.push('/journey/intro-producer/property-location')
-  }, [history])
+    if (handleValidation()) {
+      history.push('/journey/intro-producer/email')
+    }
+  }, [handleValidation, history])
 
   const handlePrev = useCallback(() => {
     history.push('/journey/intro-producer')
@@ -64,7 +88,14 @@ const StepProperty = () => {
         </Box>
 
         <Box className={classes.field}>
-          <MambaTextField placeholder="Ex: Sitio Sapopema" variant="outlined" color="white" />
+          <MambaTextField
+            placeholder="Ex: Sitio Sapopema"
+            variant="outlined"
+            color="white"
+            value={state.nomeEmpresa}
+            onChange={(e) => edit({ nomeEmpresa: e.target.value })}
+            inputRef={inputRef}
+          />
         </Box>
       </Box>
 

@@ -4,11 +4,15 @@ import { makeStyles } from '@material-ui/core/styles'
 
 import { useHistory } from 'react-router-dom'
 
+import { useProducerInformation } from '../ProducerInformationContext'
+
+import { useQueryPostProducer } from '../../../../api/producer'
+
 import Box from '@material-ui/core/Box'
-import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 
 import MambaButton from '../../../../components/Button'
+import LoaderBox from '../../../../components/LoaderBox'
 
 const useStyles = makeStyles((theme) => ({
   main: {
@@ -48,6 +52,10 @@ const StepMoreInformation = () => {
 
   const history = useHistory()
 
+  const { state } = useProducerInformation()
+
+  const { isLoading } = useQueryPostProducer({ ...state })
+
   const handleHistory = useCallback(
     (route) => {
       history.push(`/journey/${route}`)
@@ -57,23 +65,20 @@ const StepMoreInformation = () => {
 
   return (
     <>
-      <Box className={classes.main}>
-        <Box textAlign="center">
-          <Typography variant="h5">Quer adicionar fotos e mais informações agora?</Typography>
+      {isLoading && <LoaderBox />}
+      {!isLoading && (
+        <Box className={classes.main}>
+          <Box textAlign="center">
+            <Typography variant="h5">Quer adicionar fotos e mais informações agora?</Typography>
+          </Box>
+
+          <Box className={classes.field}>
+            <MambaButton onClick={() => handleHistory('producer/profile')}>Sim</MambaButton>
+
+            <MambaButton onClick={() => handleHistory('producer/dashboard')}>Não, depois</MambaButton>
+          </Box>
         </Box>
-
-        <Box className={classes.field}>
-          <MambaButton onClick={() => handleHistory('producer/profile')}>Sim</MambaButton>
-
-          <MambaButton onClick={() => handleHistory('producer/dashboard')}>Não, depois</MambaButton>
-        </Box>
-      </Box>
-
-      <Box className={classes.boxForward}>
-        <Button color="secondary" onClick={() => handleHistory('intro-producer/property-location')}>
-          <Typography variant="h6">Voltar</Typography>
-        </Button>
-      </Box>
+      )}
     </>
   )
 }

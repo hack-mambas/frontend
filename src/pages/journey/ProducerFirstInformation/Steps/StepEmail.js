@@ -4,9 +4,9 @@ import { makeStyles } from '@material-ui/core/styles'
 
 import { useHistory } from 'react-router-dom'
 
-import { useProducerInformation } from '../ProducerInformationContext'
-
 import { useSnackbar } from '../../../../hooks/useSnackbar'
+
+import { useProducerInformation } from '../ProducerInformationContext'
 
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-const StepProducerName = () => {
+const StepPhone = () => {
   const classes = useStyles()
 
   const { createSnackbar } = useSnackbar()
@@ -59,37 +59,42 @@ const StepProducerName = () => {
   const { state, edit } = useProducerInformation()
 
   const handleValidation = useCallback(() => {
-    if (!state.nome) {
+    if (!state.email) {
       inputRef.current.focus()
       createSnackbar({
         theme: 'error',
-        message: 'O campo nome  é obrigatório!'
+        message: 'O campo e-mail  é obrigatório!'
       })
       return false
     }
     return true
-  }, [createSnackbar, state.nome])
+  }, [createSnackbar, state.email])
 
   const handleNext = useCallback(() => {
     if (handleValidation()) {
-      history.push('/journey/intro-producer/property')
+      history.push('/journey/intro-producer/password')
     }
   }, [handleValidation, history])
+
+  const handlePrev = useCallback(() => {
+    history.push('/journey/intro-producer/property')
+  }, [history])
 
   return (
     <>
       <Box className={classes.main}>
         <Box>
-          <Typography variant="h5">Qual é seu nome?</Typography>
+          <Typography variant="h5">Qual é o seu e-mail?</Typography>
         </Box>
 
         <Box className={classes.field}>
           <MambaTextField
-            placeholder="Ex: Francisco de Almeida"
+            placeholder="Ex: email@gmail.com"
+            type="email"
             variant="outlined"
             color="white"
-            value={state.nome}
-            onChange={(e) => edit({ nome: e.target.value })}
+            value={state.email}
+            onChange={(e) => edit({ email: e.target.value })}
             inputRef={inputRef}
           />
         </Box>
@@ -99,9 +104,13 @@ const StepProducerName = () => {
         <Button color="secondary" onClick={() => handleNext()}>
           <Typography variant="h6">Avançar</Typography>
         </Button>
+
+        <Button color="secondary" onClick={() => handlePrev()}>
+          <Typography variant="h6">Voltar</Typography>
+        </Button>
       </Box>
     </>
   )
 }
 
-export default StepProducerName
+export default StepPhone
