@@ -1,8 +1,12 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useRef } from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
 
 import { useHistory } from 'react-router-dom'
+
+import { useProducerInformation } from '../ProducerInformationContext'
+
+import { useSnackbar } from '../../../../hooks/useSnackbar'
 
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
@@ -46,11 +50,31 @@ const useStyles = makeStyles((theme) => ({
 const StepProducerName = () => {
   const classes = useStyles()
 
+  const { createSnackbar } = useSnackbar()
+
+  const inputRef = useRef()
+
   const history = useHistory()
 
+  const { state, edit } = useProducerInformation()
+
+  const handleValidation = useCallback(() => {
+    if (!state.nome) {
+      inputRef.current.focus()
+      createSnackbar({
+        theme: 'warning',
+        message: 'O campo nome  é obrigatório!'
+      })
+      return false
+    }
+    return true
+  }, [createSnackbar, state.nome])
+
   const handleNext = useCallback(() => {
-    history.push('/journey/intro-producer/property')
-  }, [history])
+    if (handleValidation()) {
+      history.push('/journey/intro-producer/property')
+    }
+  }, [handleValidation, history])
 
   return (
     <>
@@ -60,7 +84,14 @@ const StepProducerName = () => {
         </Box>
 
         <Box className={classes.field}>
-          <MambaTextField placeholder="Ex: Francisco de Almeida" variant="outlined" color="white" />
+          <MambaTextField
+            placeholder="Ex: Francisco de Almeida"
+            variant="outlined"
+            color="white"
+            value={state.nome}
+            onChange={(e) => edit({ nome: e.target.value })}
+            inputRef={inputRef}
+          />
         </Box>
       </Box>
 

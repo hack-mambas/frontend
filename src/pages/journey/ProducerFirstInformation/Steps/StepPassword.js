@@ -1,18 +1,19 @@
-import React, { useCallback, useRef } from 'react'
+import React, { useCallback, useState } from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
 
-import { useProducerInformation } from '../ProducerInformationContext'
-
-import { useSnackbar } from '../../../../hooks/useSnackbar'
-
 import { useHistory } from 'react-router-dom'
+
+import { useProducerInformation } from '../ProducerInformationContext'
+import { useSnackbar } from '../../../../hooks/useSnackbar'
 
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
+import Typography from '@material-ui/core/Typography'
+import { InputAdornment, IconButton } from '@material-ui/core'
+import { Visibility, VisibilityOff } from '@material-ui/icons'
 
 import MambaTextField from '../../../../components/TextField'
-import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles((theme) => ({
   main: {
@@ -47,54 +48,62 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-const StepProperty = () => {
+const StepPassword = () => {
   const classes = useStyles()
 
-  const { createSnackbar } = useSnackbar()
+  const [showPassword, setShowPassword] = useState(false)
 
-  const inputRef = useRef()
+  const { createSnackbar } = useSnackbar()
 
   const history = useHistory()
 
   const { state, edit } = useProducerInformation()
 
   const handleValidation = useCallback(() => {
-    if (!state.nomeEmpresa) {
-      inputRef.current.focus()
+    if (!state.senha) {
       createSnackbar({
         theme: 'warning',
-        message: 'O campo propriedade é obrigatório!'
+        message: 'O campo da senha é obrigatório!'
       })
       return false
     }
     return true
-  }, [createSnackbar, state.nomeEmpresa])
+  }, [createSnackbar, state.senha])
 
   const handleNext = useCallback(() => {
     if (handleValidation()) {
-      history.push('/journey/intro-producer/email')
+      history.push('/journey/intro-producer/more-information')
     }
   }, [handleValidation, history])
 
   const handlePrev = useCallback(() => {
-    history.push('/journey/intro-producer')
+    history.push('/journey/intro-producer/email')
   }, [history])
 
   return (
     <>
       <Box className={classes.main}>
         <Box textAlign="center">
-          <Typography variant="h5">Como você quer que a sua propriedade seja identificada?</Typography>
+          <Typography variant="h5">Crie uma senha que você não vá esquecer</Typography>
         </Box>
 
         <Box className={classes.field}>
           <MambaTextField
-            placeholder="Ex: Sitio Sapopema"
+            placeholder="Ex: Senha1234"
             variant="outlined"
             color="white"
-            value={state.nomeEmpresa}
-            onChange={(e) => edit({ nomeEmpresa: e.target.value })}
-            inputRef={inputRef}
+            value={state.senha}
+            onChange={(e) => edit({ senha: e.target.value })}
+            type={showPassword ? 'text' : 'password'}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="start">
+                  <IconButton onClick={() => setShowPassword(!showPassword)}>
+                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                </InputAdornment>
+              )
+            }}
           />
         </Box>
       </Box>
@@ -112,4 +121,4 @@ const StepProperty = () => {
   )
 }
 
-export default StepProperty
+export default StepPassword

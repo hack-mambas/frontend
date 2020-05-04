@@ -2,11 +2,11 @@ import React, { useCallback, useRef } from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
 
-import { useProducerInformation } from '../ProducerInformationContext'
+import { useHistory } from 'react-router-dom'
 
 import { useSnackbar } from '../../../../hooks/useSnackbar'
 
-import { useHistory } from 'react-router-dom'
+import { useProducerInformation } from '../ProducerInformationContext'
 
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-const StepProperty = () => {
+const StepPhone = () => {
   const classes = useStyles()
 
   const { createSnackbar } = useSnackbar()
@@ -59,41 +59,42 @@ const StepProperty = () => {
   const { state, edit } = useProducerInformation()
 
   const handleValidation = useCallback(() => {
-    if (!state.nomeEmpresa) {
+    if (!state.email) {
       inputRef.current.focus()
       createSnackbar({
         theme: 'warning',
-        message: 'O campo propriedade é obrigatório!'
+        message: 'O campo e-mail  é obrigatório!'
       })
       return false
     }
     return true
-  }, [createSnackbar, state.nomeEmpresa])
+  }, [createSnackbar, state.email])
 
   const handleNext = useCallback(() => {
     if (handleValidation()) {
-      history.push('/journey/intro-producer/email')
+      history.push('/journey/intro-producer/password')
     }
   }, [handleValidation, history])
 
   const handlePrev = useCallback(() => {
-    history.push('/journey/intro-producer')
+    history.push('/journey/intro-producer/property')
   }, [history])
 
   return (
     <>
       <Box className={classes.main}>
-        <Box textAlign="center">
-          <Typography variant="h5">Como você quer que a sua propriedade seja identificada?</Typography>
+        <Box>
+          <Typography variant="h5">Qual é o seu e-mail?</Typography>
         </Box>
 
         <Box className={classes.field}>
           <MambaTextField
-            placeholder="Ex: Sitio Sapopema"
+            placeholder="Ex: email@gmail.com"
+            type="email"
             variant="outlined"
             color="white"
-            value={state.nomeEmpresa}
-            onChange={(e) => edit({ nomeEmpresa: e.target.value })}
+            value={state.email}
+            onChange={(e) => edit({ email: e.target.value })}
             inputRef={inputRef}
           />
         </Box>
@@ -112,4 +113,4 @@ const StepProperty = () => {
   )
 }
 
-export default StepProperty
+export default StepPhone
