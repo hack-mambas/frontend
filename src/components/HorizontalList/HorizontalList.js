@@ -41,8 +41,8 @@ export const HorizontalList = ({ items }) => {
   const history = useHistory()
 
   const handleClickItem = useCallback(
-    (id, route) => {
-      history.push(`/journey/consumer/marketplace/${route}/${id}`)
+    (id) => {
+      history.push(`/journey/consumer/marketplace/product/${id}`)
     },
     [history]
   )
