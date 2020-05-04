@@ -80,7 +80,7 @@ const StepProducerName = () => {
   }, [handleValidation, history])
 
   const handlePrev = useCallback(() => {
-    history.push('/journey/intro-producer/google')
+    history.push('/journey/intro-producer/helping-three')
   }, [handleValidation, history])
 
   return (

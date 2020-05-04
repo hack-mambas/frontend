@@ -28,7 +28,7 @@ export const routesProducer = [
 
 export const routesConsumer = [
   {
-    name: 'Marketplace',
+    name: 'Feira',
     path: '/journey/consumer/marketplace',
     icon: 'store_front'
   },

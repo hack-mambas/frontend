@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
 import AccountCircle from '@material-ui/icons/AccountCircle'
+import Logotipo from '.././../assets/relfi-logotipo.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1
+  },
+  logotipo: {
+    height: '2rem'
   }
 }))
 
@@ -55,12 +59,10 @@ const Navbar = memo(({ onClickMenu }) => {
         >
           <MenuIcon />
         </IconButton>
-        <Box width={1}>
-          <Typography variant="h6" className={classes.title}>
-            Realfi
-          </Typography>
+        <Box width={1} display="flex" flexDirection="column" alignContent='center' alignItems='center'>
+          <img src={Logotipo} alt="Relfi" className={classes.logotipo} />
         </Box>
-        <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu" onClick={handleClick}>
+        <IconButton edge="end" color="inherit" aria-label="menu" onClick={handleClick}>
           <AccountCircle />
         </IconButton>
         <Menu id="simple-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>

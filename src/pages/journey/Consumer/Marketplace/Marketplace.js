@@ -32,6 +32,7 @@ const deliverToday = [
     description: 'Sítio Aborígene',
     location: 'Linha Madureira',
     city: 'Pato Branco, PR',
+    conquest: 'Menores preços',
     image: 'https://source.unsplash.com/XemjjFd_4qE'
   },
   {
@@ -39,6 +40,7 @@ const deliverToday = [
     description: 'Morada dos Sonhos',
     location: 'Com. Independência',
     city: 'Pato Branco, PR',
+    conquest: 'Entrega rápida',
     image: 'https://source.unsplash.com/QcBAZ7VREHQ'
   }
 ]
@@ -49,6 +51,7 @@ const favourites = [
     description: 'Velho Casarão',
     location: 'Linha Tapera',
     city: 'Grande Figueira, ST',
+    conquest: 'Variedade de produtos',
     image: 'https://source.unsplash.com/YvvHEQNgMcU'
   }
 ]
@@ -81,10 +84,10 @@ const Marketplace = memo(() => {
           {openedColapse ? (
             <MinimizeIcon color="primary" />
           ) : (
-            <Box marginTop="5px">
-              <AddIcon color="primary" />
-            </Box>
-          )}
+              <Box marginTop="5px">
+                <AddIcon color="primary" />
+              </Box>
+            )}
         </Box>
         <Collapse in={openedColapse} timeout="auto" unmountOnExit>
           <VerticalList items={deliverToday} onClick={handleSelectProperty} />
@@ -97,10 +100,10 @@ const Marketplace = memo(() => {
           {openedColapseFavorites ? (
             <MinimizeIcon color="primary" />
           ) : (
-            <Box marginTop="5px">
-              <AddIcon color="primary" />
-            </Box>
-          )}
+              <Box marginTop="5px">
+                <AddIcon color="primary" />
+              </Box>
+            )}
         </Box>
         <Collapse in={openedColapseFavorites} timeout="auto" unmountOnExit>
           <VerticalList items={favourites} />
