@@ -44,7 +44,10 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     flexDirection: 'row-reverse',
     justifyContent: 'space-between'
-  }
+  },
+  whiteAction: {
+    color: '#FFF'
+  },
 }))
 
 const StepProducerName = () => {
@@ -76,6 +79,10 @@ const StepProducerName = () => {
     }
   }, [handleValidation, history])
 
+  const handlePrev = useCallback(() => {
+    history.push('/journey/intro-producer/google')
+  }, [handleValidation, history])
+
   return (
     <>
       <Box className={classes.main}>
@@ -96,8 +103,12 @@ const StepProducerName = () => {
       </Box>
 
       <Box className={classes.boxForward}>
-        <Button color="secondary" onClick={() => handleNext()}>
+        <Button className={classes.whiteAction} onClick={() => handleNext()}>
           <Typography variant="h6">Avançar</Typography>
+        </Button>
+
+        <Button className={classes.whiteAction} onClick={() => handlePrev()}>
+          <Typography variant="h6">Voltar</Typography>
         </Button>
       </Box>
     </>

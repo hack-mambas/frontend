@@ -33,7 +33,7 @@ const theme = createMuiTheme({
     }
   },
   typography: {
-    fontFamily: 'Rubik, sans-serif',
+    fontFamily: 'Rubik, sans-serif !important',
     fontWeightBold: 500,
     fontWeightMedium: 400
   }

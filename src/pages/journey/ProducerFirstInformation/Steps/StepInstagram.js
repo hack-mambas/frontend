@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useRef } from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -7,31 +7,38 @@ import { useHistory } from 'react-router-dom'
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
 
-import MambaTextField from '../../../../components/TextField'
+import Background from '../../../../assets/insta.png';
 import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles((theme) => ({
+  background: {
+    width: '100%',
+    height: '100vh',
+    position: 'absolute',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    flexDirection: 'column',
+    backgroundImage: `url(${Background})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    filter: 'brightness(0.45)'
+  },
   main: {
-    backgroundColor: theme.palette.primary.main,
     color: theme.palette.background.main,
     width: '100%',
     height: '100vh',
+    position: 'relative',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'column'
-  },
-  field: {
-    marginTop: theme.spacing(3),
-    width: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     flexDirection: 'column',
-
-    '& .MuiFormControl-root': {
-      width: '75%'
-    }
+    textAlign: 'center'
+  },
+  mainText: {
+    zIndex: 10,
+    marginTop: '2rem'
   },
   boxForward: {
     position: 'fixed',
@@ -44,31 +51,38 @@ const useStyles = makeStyles((theme) => ({
   whiteAction: {
     color: '#FFF'
   },
+  details: {
+    marginRight: 8,
+    marginLeft: 8,
+    marginTop: '5rem',
+    zIndex: 10
+  }
 }))
 
-const StepPropertyLocation = () => {
+const StepInstagram = () => {
   const classes = useStyles()
 
   const history = useHistory()
 
   const handleNext = useCallback(() => {
-    history.push('/journey/intro-producer/more-information')
+    history.push('/journey/intro-producer/google')
   }, [history])
 
   const handlePrev = useCallback(() => {
-    history.push('/journey/intro-producer/property')
+    history.push('/journey/intro-producer')
   }, [history])
 
   return (
     <>
       <Box className={classes.main}>
-        <Box textAlign="center">
-          <Typography variant="h5">Onde fica a sua propriedade?</Typography>
+        <Box className={classes.mainText} m={1}>
+          <Typography variant="h4">Foco no produto!</Typography>
         </Box>
-
-        <Box className={classes.field}>
-          <MambaTextField placeholder="Ex: Linha Madureira" variant="outlined" color="white" />
+        <Box className={classes.details}>
+          <Typography variant="h6">O Instagram permite que você crie catálogos de fotos do seu negócio</Typography>
+          <Typography variant="h6">Fazedo com que muitas pessoas conheçam cada vez mais de forma gratuita.</Typography>
         </Box>
+        <Box className={classes.background} />
       </Box>
 
       <Box className={classes.boxForward}>
@@ -84,4 +98,4 @@ const StepPropertyLocation = () => {
   )
 }
 
-export default StepPropertyLocation
+export default StepInstagram

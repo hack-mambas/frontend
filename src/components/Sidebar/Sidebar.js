@@ -2,7 +2,7 @@ import React, { memo, useCallback } from 'react'
 
 import { useHistory } from 'react-router-dom'
 
-import { List, Drawer, ListItem, ListItemText } from '@material-ui/core'
+import { List, Drawer, ListItem, ListItemText, ListItemIcon, Icon } from '@material-ui/core'
 
 const Sidebar = memo(({ open, onOpen, routes }) => {
   const history = useHistory()
@@ -21,6 +21,9 @@ const Sidebar = memo(({ open, onOpen, routes }) => {
         {routes &&
           routes.map((route) => (
             <ListItem button key={route.name} onClick={() => handleRoute(route.path)}>
+              <ListItemIcon color='primary'>
+                <Icon>{route.icon}</Icon>
+              </ListItemIcon>
               <ListItemText primary={route.name} />
             </ListItem>
           ))}
