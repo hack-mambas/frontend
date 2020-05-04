@@ -7,24 +7,10 @@ import { useHistory } from 'react-router-dom'
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
 
-import Background from '../../../../assets/insta.png';
+import Background from '../../../../assets/helping-three.png';
 import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles((theme) => ({
-  background: {
-    width: '100%',
-    height: '100vh',
-    position: 'absolute',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    flexDirection: 'column',
-    backgroundImage: `url(${Background})`,
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    filter: 'brightness(0.45)'
-  },
   main: {
     color: theme.palette.background.main,
     width: '100%',
@@ -34,11 +20,15 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'flex-start',
     flexDirection: 'column',
-    textAlign: 'center'
+    textAlign: 'center',
+    backgroundImage: `url(${Background})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
   },
   mainText: {
     zIndex: 10,
-    marginTop: '2rem'
+    marginTop: '2rem',
   },
   boxForward: {
     position: 'fixed',
@@ -59,31 +49,22 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-const StepInstagram = () => {
+const StepGoogle = () => {
   const classes = useStyles()
 
   const history = useHistory()
 
   const handleNext = useCallback(() => {
-    history.push('/journey/intro-producer/google')
+    history.push('/journey/intro-producer/name')
   }, [history])
 
   const handlePrev = useCallback(() => {
-    history.push('/journey/intro-producer')
+    history.push('/journey/intro-producer/helping-two')
   }, [history])
 
   return (
     <>
-      <Box className={classes.main}>
-        <Box className={classes.mainText} m={1}>
-          <Typography variant="h4">Foco no produto!</Typography>
-        </Box>
-        <Box className={classes.details}>
-          <Typography variant="h6">O Instagram permite que você crie catálogos de fotos do seu negócio</Typography>
-          <Typography variant="h6">Fazedo com que muitas pessoas conheçam cada vez mais de forma gratuita.</Typography>
-        </Box>
-        <Box className={classes.background} />
-      </Box>
+      <Box className={classes.main} />
 
       <Box className={classes.boxForward}>
         <Button className={classes.whiteAction} onClick={() => handleNext()}>
@@ -98,4 +79,4 @@ const StepInstagram = () => {
   )
 }
 
-export default StepInstagram
+export default StepGoogle

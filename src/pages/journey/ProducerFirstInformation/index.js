@@ -6,9 +6,9 @@ import LoaderBox from '../../../components/LoaderBox'
 
 import { ProducerInformationProvider } from './ProducerInformationContext'
 
-const StepInfos = lazy(() => import('./Steps/StepInfos'))
-const StepInstagram = lazy(() => import('./Steps/StepInstagram'))
-const StepGoogle = lazy(() => import('./Steps/StepGoogle'))
+const StepHelpingOne = lazy(() => import('./Steps/StepHelpingOne'))
+const StepHelpingTwo = lazy(() => import('./Steps/StepHelpingTwo'))
+const StepHelpingThree = lazy(() => import('./Steps/StepHelpingThree'))
 const StepProducerName = lazy(() => import('./Steps/StepProducerName'))
 const StepProperty = lazy(() => import('./Steps/StepProperty'))
 const StepEmail = lazy(() => import('./Steps/StepEmail'))
@@ -20,9 +20,9 @@ const ProducerFirstInformation = memo(() => {
   return (
     <Suspense fallback={<LoaderBox />}>
       <ProducerInformationProvider>
-        <Route path="/journey/intro-producer" exact component={StepInfos} />
-        <Route path="/journey/intro-producer/instagram" exact component={StepInstagram} />
-        <Route path="/journey/intro-producer/google" exact component={StepGoogle} />
+        <Route path="/journey/intro-producer" exact component={StepHelpingOne} />
+        <Route path="/journey/intro-producer/helping-two" exact component={StepHelpingTwo} />
+        <Route path="/journey/intro-producer/helping-three" exact component={StepHelpingThree} />
         <Route path="/journey/intro-producer/name" exact component={StepProducerName} />
         <Route path="/journey/intro-producer/property" component={StepProperty} />
         <Route path="/journey/intro-producer/property-location" component={StepPropertyLocation} />

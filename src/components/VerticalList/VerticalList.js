@@ -55,7 +55,7 @@ export const VerticalList = ({ items, onClick }) => {
 
         <Box className={classes.badges}>
           <Typography variant="subtitle2" className={classes.text}>
-            <Icon color="secondary">emoji_events</Icon> Menores Preços
+            <Icon color="secondary">emoji_events</Icon> {item.conquest}
           </Typography>
           <Typography variant="subtitle2" className={classes.text}>
             <Icon color="primary">two_wheeler</Icon> Entrega hoje

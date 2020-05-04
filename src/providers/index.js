@@ -53,7 +53,7 @@ const Providers = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <SnackbarProvider position="bottom">
+      <SnackbarProvider position="bottom" progressBar={false} >
         <CssBaseline />
         <ReactQueryConfigProvider config={reactQueryConfig}>
           <BrowserRouter basename="/">{children}</BrowserRouter>
