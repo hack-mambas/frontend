@@ -12,12 +12,12 @@ const StepMoreInformation = lazy(() => import('./Steps/StepMoreInformation'))
 const ProducerFirstInformation = memo(() => {
   return (
     <Suspense fallback={<LoaderBox />}>
-      <Route path="/journey/producer/new" exact component={StepProducerName} />
-      <Route path="/journey/producer/new/property" component={StepProperty} />
-      <Route path="/journey/producer/new/property-location" component={StepPropertyLocation} />
-      <Route path="/journey/producer/new/more-information" component={StepMoreInformation} />
+      <Route path="/journey/intro-producer" exact component={StepProducerName} />
+      <Route path="/journey/intro-producer/property" component={StepProperty} />
+      <Route path="/journey/intro-producer/property-location" component={StepPropertyLocation} />
+      <Route path="/journey/intro-producer/more-information" component={StepMoreInformation} />
 
-      <Redirect to="/journey/producer/new" />
+      <Redirect to="/journey/intro-producer" />
     </Suspense>
   )
 })

@@ -50,7 +50,7 @@ const StepMoreInformation = () => {
 
   const handleHistory = useCallback(
     (route) => {
-      history.push(`/journey/producer/${route}`)
+      history.push(`/journey/${route}`)
     },
     [history]
   )
@@ -63,14 +63,14 @@ const StepMoreInformation = () => {
         </Box>
 
         <Box className={classes.field}>
-          <MambaButton onClick={() => handleHistory('profile')}>Sim</MambaButton>
+          <MambaButton onClick={() => handleHistory('producer/profile')}>Sim</MambaButton>
 
-          <MambaButton onClick={() => handleHistory('dashboard')}>Não, depois</MambaButton>
+          <MambaButton onClick={() => handleHistory('producer/dashboard')}>Não, depois</MambaButton>
         </Box>
       </Box>
 
       <Box className={classes.boxForward}>
-        <Button color="secondary" onClick={() => handleHistory('new/property-location')}>
+        <Button color="secondary" onClick={() => handleHistory('intro-producer/property-location')}>
           <Typography variant="h6">Voltar</Typography>
         </Button>
       </Box>
