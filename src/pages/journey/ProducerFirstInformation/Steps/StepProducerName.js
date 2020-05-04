@@ -62,7 +62,7 @@ const StepProducerName = () => {
     if (!state.nome) {
       inputRef.current.focus()
       createSnackbar({
-        theme: 'error',
+        theme: 'warning',
         message: 'O campo nome  é obrigatório!'
       })
       return false

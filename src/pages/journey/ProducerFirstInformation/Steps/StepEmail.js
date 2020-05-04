@@ -62,7 +62,7 @@ const StepPhone = () => {
     if (!state.email) {
       inputRef.current.focus()
       createSnackbar({
-        theme: 'error',
+        theme: 'warning',
         message: 'O campo e-mail  é obrigatório!'
       })
       return false

@@ -62,7 +62,7 @@ const StepProperty = () => {
     if (!state.nomeEmpresa) {
       inputRef.current.focus()
       createSnackbar({
-        theme: 'error',
+        theme: 'warning',
         message: 'O campo propriedade é obrigatório!'
       })
       return false
