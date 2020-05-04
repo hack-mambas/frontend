@@ -110,7 +110,7 @@ export const Producer = ({ producer }) => {
   ]
 
   const handleSelectProduct = () => {
-    console.log('tey')
+    console.log('')
   }
 
   return (

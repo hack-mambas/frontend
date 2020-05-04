@@ -1,8 +1,12 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useRef } from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
 
 import { useHistory } from 'react-router-dom'
+
+import { useSnackbar } from '../../../../hooks/useSnackbar'
+
+import { useProducerInformation } from '../ProducerInformationContext'
 
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
@@ -46,14 +50,34 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const StepPropertyLocation = () => {
+const StepPhone = () => {
   const classes = useStyles()
+
+  const { createSnackbar } = useSnackbar()
+
+  const inputRef = useRef()
 
   const history = useHistory()
 
+  const { state, edit } = useProducerInformation()
+
+  const handleValidation = useCallback(() => {
+    if (!state.email) {
+      inputRef.current.focus()
+      createSnackbar({
+        theme: 'warning',
+        message: 'O campo e-mail  é obrigatório!'
+      })
+      return false
+    }
+    return true
+  }, [createSnackbar, state.email])
+
   const handleNext = useCallback(() => {
-    history.push('/journey/intro-producer/more-information')
-  }, [history])
+    if (handleValidation()) {
+      history.push('/journey/intro-producer/password')
+    }
+  }, [handleValidation, history])
 
   const handlePrev = useCallback(() => {
     history.push('/journey/intro-producer/property')
@@ -62,12 +86,20 @@ const StepPropertyLocation = () => {
   return (
     <>
       <Box className={classes.main}>
-        <Box textAlign="center">
-          <Typography variant="h5">Onde fica a sua propriedade?</Typography>
+        <Box>
+          <Typography variant="h5">Qual é o seu e-mail?</Typography>
         </Box>
 
         <Box className={classes.field}>
-          <MambaTextField placeholder="Ex: Linha Madureira" variant="outlined" color="white" />
+          <MambaTextField
+            placeholder="Ex: email@gmail.com"
+            type="email"
+            variant="outlined"
+            color="white"
+            value={state.email}
+            onChange={(e) => edit({ email: e.target.value })}
+            inputRef={inputRef}
+          />
         </Box>
       </Box>
 
@@ -84,4 +116,4 @@ const StepPropertyLocation = () => {
   )
 }
 
-export default StepPropertyLocation
+export default StepPhone

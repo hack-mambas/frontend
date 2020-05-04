@@ -64,7 +64,7 @@ const Navbar = memo(({ onClickMenu }) => {
           <AccountCircle />
         </IconButton>
         <Menu id="simple-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
-          <MenuItem onClick={() => handleClickOption()}>Profile</MenuItem>
+          <MenuItem onClick={() => handleClickOption()}>Perfil</MenuItem>
         </Menu>
       </Toolbar>
     </AppBar>
