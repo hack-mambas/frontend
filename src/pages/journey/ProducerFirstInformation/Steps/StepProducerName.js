@@ -49,7 +49,7 @@ const StepProducerName = () => {
   const history = useHistory()
 
   const handleNext = useCallback(() => {
-    history.push('/journey/producer/new/property')
+    history.push('/journey/intro-producer/property')
   }, [history])
 
   return (

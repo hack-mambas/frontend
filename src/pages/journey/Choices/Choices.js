@@ -51,7 +51,7 @@ export const Choices = memo(() => {
             className={classes.button}
             variant="outlined"
             color="primary"
-            onClick={() => handleChoices('producer/new')}
+            onClick={() => handleChoices('intro-producer')}
           >
             Sou Produtor
           </Button>
