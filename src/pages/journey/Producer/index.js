@@ -11,6 +11,7 @@ const Categories = lazy(() => import('./Categories'))
 const Products = lazy(() => import('./Products'))
 const Profile = lazy(() => import('./Profile'))
 const Achievements = lazy(() => import('./Achievements'))
+const GoDigital = lazy(() => import('./GoDigital'))
 
 const Journey = memo(() => {
   return (
@@ -21,6 +22,7 @@ const Journey = memo(() => {
         <Route path="/journey/producer/products" component={Products} />
         <Route path="/journey/producer/my-profile" component={Profile} />
         <Route path="/journey/producer/achievements" component={Achievements} />
+        <Route path="/journey/producer/go-digital" component={GoDigital} />
         <Redirect to="/journey/producer/dashboard" />
       </Layout>
     </Suspense>

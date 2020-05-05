@@ -69,13 +69,13 @@ const StepMoreInformation = () => {
       {!isLoading && (
         <Box className={classes.main}>
           <Box textAlign="center">
-            <Typography variant="h5">Quer adicionar fotos e mais informações agora?</Typography>
+            <Typography variant="h5">Agora que tal cadastrar seu primeiro produto ?</Typography>
           </Box>
 
           <Box className={classes.field}>
-            <MambaButton onClick={() => handleHistory('producer/profile')}>Sim</MambaButton>
+            <MambaButton onClick={() => handleHistory('producer/products')}>Sim, vamos lá!</MambaButton>
 
-            <MambaButton onClick={() => handleHistory('producer/dashboard')}>Não, depois</MambaButton>
+            <MambaButton onClick={() => handleHistory('producer/dashboard')}>Não, depois.</MambaButton>
           </Box>
         </Box>
       )}
