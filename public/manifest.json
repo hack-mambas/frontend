@@ -3,7 +3,7 @@
   "short_name": "Relfi",
   "theme_color": "#64b450",
   "background_color": "#f0f0f0",
-  "display": "browser",
+  "display": "standalone",
   "orientation": "portrait",
   "Scope": "/",
   "start_url": ".",
